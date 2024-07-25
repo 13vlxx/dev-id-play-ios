@@ -10,7 +10,7 @@ import MessageUI
 
 struct RuleView: View {
     @State private var isShowingMailView = false
-    @State private var mailResult: Result<MFMailComposeResult, Error>? = nil
+    @State private var mailResult: Bool = false
     
     let rule1 = Rule(id: 0, points: 1, description: "gagné pour chaque participation à un match")
     let rule2 = Rule(id: 1, points: 10, description: "pour celui ou celle qui gagne un match")
@@ -56,7 +56,7 @@ struct RuleView: View {
                 .background(.accent)
                 .foregroundStyle(Color(.content))
                 .sheet(isPresented: $isShowingMailView) {
-                    MailView(isShowing: self.$isShowingMailView, result: self.$mailResult)
+                    
                 }
             })
         }
@@ -64,54 +64,6 @@ struct RuleView: View {
         .ignoresSafeArea(edges: .top)
     }
 }
-
-    struct MailView: UIViewControllerRepresentable {
-        @Environment(\.presentationMode) var presentation
-        @Binding var isShowing: Bool
-        @Binding var result: Result<MFMailComposeResult, Error>?
-
-        class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
-            @Binding var isShowing: Bool
-            @Binding var result: Result<MFMailComposeResult, Error>?
-
-            init(isShowing: Binding<Bool>, result: Binding<Result<MFMailComposeResult, Error>?>) {
-                _isShowing = isShowing
-                _result = result
-            }
-
-            func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-                defer {
-                    isShowing = false
-                }
-                if let error = error {
-                    self.result = .failure(error)
-                } else {
-                    self.result = .success(result)
-                }
-                controller.dismiss(animated: true)
-            }
-        }
-
-        func makeCoordinator() -> Coordinator {
-            return Coordinator(isShowing: $isShowing, result: $result)
-        }
-
-        func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
-            let vc = MFMailComposeViewController()
-            vc.mailComposeDelegate = context.coordinator
-            // Configure the fields of the interface.
-            // For example, to set the subject:
-            // vc.setSubject("Hello!")
-            // To set the recipients:
-            // vc.setToRecipients(["example@example.com"])
-            return vc
-        }
-
-        func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<MailView>) {
-            // No update needed
-        }
-    }
-
 
 #Preview {
     RuleView()

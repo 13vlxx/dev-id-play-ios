@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4464BA2C4A505100463B90 /* MatchCard.swift */; };
 		FA56BD0D2C4525190093F619 /* dip_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD0C2C4525190093F619 /* dip_iosApp.swift */; };
 		FA56BD0F2C4525190093F619 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD0E2C4525190093F619 /* ContentView.swift */; };
 		FA56BD112C45251B0093F619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA56BD102C45251B0093F619 /* Assets.xcassets */; };
@@ -19,13 +20,20 @@
 		FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD302C466DFC0093F619 /* RuleView.swift */; };
 		FA56BD332C4674DB0093F619 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD322C4674DB0093F619 /* Rule.swift */; };
 		FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD342C46781A0093F619 /* RuleItem.swift */; };
+		FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */; };
+		FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBEF2C5244B00093CB3E /* Game.swift */; };
+		FAA1EBF22C5245860093CB3E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBF12C5245860093CB3E /* City.swift */; };
 		FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */; };
 		FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */; };
 		FAD742042C47A1F200CCB7E4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */; };
-		FAD742062C47B14500CCB7E4 /* UpcommingMatchesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742052C47B14500CCB7E4 /* UpcommingMatchesSection.swift */; };
+		FAE6DD852C50F40000273038 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD842C50F40000273038 /* MatchesView.swift */; };
+		FAE6DD872C50F93300273038 /* CreateMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD862C50F93300273038 /* CreateMatchView.swift */; };
+		FAE6DD892C5101F500273038 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD882C5101F500273038 /* GameView.swift */; };
+		FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA4464BA2C4A505100463B90 /* MatchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCard.swift; sourceTree = "<group>"; };
 		FA56BD092C4525190093F619 /* dip-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dip-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA56BD0C2C4525190093F619 /* dip_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dip_iosApp.swift; sourceTree = "<group>"; };
 		FA56BD0E2C4525190093F619 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,10 +47,16 @@
 		FA56BD302C466DFC0093F619 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		FA56BD322C4674DB0093F619 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		FA56BD342C46781A0093F619 /* RuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleItem.swift; sourceTree = "<group>"; };
+		FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		FAA1EBEF2C5244B00093CB3E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		FAA1EBF12C5245860093CB3E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
-		FAD742052C47B14500CCB7E4 /* UpcommingMatchesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingMatchesSection.swift; sourceTree = "<group>"; };
+		FAE6DD842C50F40000273038 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
+		FAE6DD862C50F93300273038 /* CreateMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMatchView.swift; sourceTree = "<group>"; };
+		FAE6DD882C5101F500273038 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				FA56BD232C4557F80093F619 /* User.swift */,
+				FAA1EBEF2C5244B00093CB3E /* Game.swift */,
 				FA56BD322C4674DB0093F619 /* Rule.swift */,
+				FAA1EBF12C5245860093CB3E /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FA56BD292C455BCE0093F619 /* BaseViewModel.swift */,
+				FA4464BA2C4A505100463B90 /* MatchCard.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -166,11 +183,31 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		FAD741FC2C47A18000CCB7E4 /* Home */ = {
+		FAA1EBEB2C5242760093CB3E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */,
-				FAD742052C47B14500CCB7E4 /* UpcommingMatchesSection.swift */,
+				FAE6DD882C5101F500273038 /* GameView.swift */,
+				FAE6DD842C50F40000273038 /* MatchesView.swift */,
+				FAE6DD862C50F93300273038 /* CreateMatchView.swift */,
+				FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FAA1EBEC2C5242990093CB3E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FAD741FC2C47A18000CCB7E4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FAA1EBEC2C5242990093CB3E /* ViewModels */,
+				FAA1EBEB2C5242760093CB3E /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -262,19 +299,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA56BD242C4557F80093F619 /* User.swift in Sources */,
+				FAE6DD852C50F40000273038 /* MatchesView.swift in Sources */,
 				FA56BD332C4674DB0093F619 /* Rule.swift in Sources */,
 				FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */,
 				FA56BD2A2C455BCE0093F619 /* BaseViewModel.swift in Sources */,
+				FAE6DD892C5101F500273038 /* GameView.swift in Sources */,
 				FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */,
+				FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */,
 				FA56BD2C2C455C7F0093F619 /* LoginViewModel.swift in Sources */,
 				FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */,
-				FAD742062C47B14500CCB7E4 /* UpcommingMatchesSection.swift in Sources */,
 				FA56BD1F2C4541730093F619 /* LoginView.swift in Sources */,
+				FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */,
 				FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */,
 				FA56BD0F2C4525190093F619 /* ContentView.swift in Sources */,
+				FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */,
+				FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */,
+				FAE6DD872C50F93300273038 /* CreateMatchView.swift in Sources */,
 				FAD742042C47A1F200CCB7E4 /* NotificationsView.swift in Sources */,
 				FA56BD2F2C455DFA0093F619 /* ApiService.swift in Sources */,
 				FA56BD0D2C4525190093F619 /* dip_iosApp.swift in Sources */,
+				FAA1EBF22C5245860093CB3E /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,6 +490,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
