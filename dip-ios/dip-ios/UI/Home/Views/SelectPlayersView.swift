@@ -42,11 +42,11 @@ struct SelectPlayersView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            
+                            print("\(gameVM.selectedGame!.id) + \(gameVM.date) + \(gameVM.playersId)")
                         } label: {
                             Text("Valider")
                         }
-                        .disabled(gameVM.areAllPlayersSelected())
+                        .disabled(!gameVM.areAllPlayersSelected())
                         .foregroundStyle(gameVM.areAllPlayersSelected() ? .accent : .lightNeutral)
                     }
                 }

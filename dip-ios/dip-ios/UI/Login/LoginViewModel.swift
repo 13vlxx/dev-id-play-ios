@@ -8,7 +8,7 @@
 import Foundation
 
 class LoginViewModel: BaseViewModel {
-    @Published var user: User?
-    
-    
+    func login(_ token: String) {
+        CurrentUserService.shared.setToken(token)
+    }
 }

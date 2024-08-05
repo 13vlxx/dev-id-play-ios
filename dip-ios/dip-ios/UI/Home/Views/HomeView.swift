@@ -29,6 +29,7 @@ struct HomeView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isNewMatchSheetPresented = false
     @State private var showHomeSheet: HomeSheetEnum?
+    @State private var isProfileSheetPresented = false
     
     init() {
         let apparence = UINavigationBarAppearance()
@@ -60,6 +61,11 @@ struct HomeView: View {
         .sheet(isPresented: $isNewMatchSheetPresented, content: {
             CreateMatchView()
         })
+        .sheet(isPresented: $isProfileSheetPresented, content: {
+            Button("logout") {
+                CurrentUserService.shared.logout()
+            }
+        })
         .sheet(item: $showHomeSheet) { item in
             switch item {
             case .finished, .upcomming:
@@ -87,6 +93,9 @@ extension HomeView {
                 Spacer()
                 
                 Image(systemName: "circle")
+                    .onTapGesture {
+                        isProfileSheetPresented = true
+                    }
             }
             .font(.system(size: 30))
             .fontWeight(.bold)

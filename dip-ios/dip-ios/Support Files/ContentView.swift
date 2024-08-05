@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isLoggedIn: Bool = false
+    @StateObject private var userService = CurrentUserService.shared
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(.neutral)
@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if isLoggedIn {
+            if userService.isLoggedIn {
                 VStack {
                     TabView {
                         HomeView()
@@ -45,15 +45,11 @@ struct ContentView: View {
                     }
                 }
                 .transition(.move(edge: .trailing))
-                .animation(.easeInOut, value: isLoggedIn)
+                .animation(.easeInOut, value: userService.isLoggedIn)
             } else {
-                LoginView(onLogin: {
-                    withAnimation {
-                        self.isLoggedIn = true
-                    }
-                })
+                LoginView()
                 .transition(.move(edge: .leading))
-                .animation(.easeInOut, value: isLoggedIn)
+                .animation(.easeInOut, value: userService.isLoggedIn)
             }
         }
     }

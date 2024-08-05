@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    var onLogin: () -> Void
-    
+    @State private var isLoading = false
+    @StateObject private var loginVM = LoginViewModel()
     
     var body: some View {
         ScrollView {
@@ -45,7 +45,13 @@ struct LoginView: View {
                 }
                 
                 Button {
-                    onLogin()
+                    isLoading = true
+                    OAuthManager.shared.authenticate { accessToken, refreshToken in
+                        if let accessToken = accessToken {
+                            loginVM.login(accessToken)
+                        }
+                    }
+                    isLoading = false
                 } label: {
                     HStack(spacing: 30) {
                         Image("GoogleLogo")
@@ -75,8 +81,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView {
-        print("ok")
-    }
+    LoginView()
 }
 
