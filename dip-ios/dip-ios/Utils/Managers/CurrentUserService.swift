@@ -13,6 +13,8 @@ class CurrentUserService: ObservableObject {
             userDefaults.set(isLoggedIn, forKey: isLoggedInKey)
         }
     }
+    @Published var currentUser: User?
+    
     private let userDefaults = UserDefaults.standard
     private let tokenKey = "authToken"
     private let isLoggedInKey = "isLoggedIn"
@@ -31,6 +33,27 @@ class CurrentUserService: ObservableObject {
     func setToken(_ token: String) {
         userDefaults.set(token, forKey: tokenKey)
         isLoggedIn = true
+    }
+    
+    func fetchCurrentUser() {
+        guard getToken() != nil else {
+            print("No token available")
+            return
+        }
+        
+        WebService.getMe { [weak self] (user, response) in
+            DispatchQueue.main.async {
+                if response.isSuccess, let user = user {
+                    self?.currentUser = user
+                    print("User fetched successfully: \(user)")
+                } else {
+                    print("Failed to fetch user")
+                    if response.statusCode == 401 {
+                        self?.logout()
+                    }
+                }
+            }
+        }
     }
     
     func logout() {

@@ -9,7 +9,7 @@ import Foundation
 
 class WebService {
     struct Consts {
-        static let baseUrl = "https://337c-168-220-131-251.ngrok-free.app"
+        static let baseUrl = "https://7ae7-5-104-196-125.ngrok-free.app/api"
         
         static func UrlGames() -> URL {
             return URL(string: "\(baseUrl)/games")!
@@ -24,7 +24,7 @@ class WebService {
         getDataTask(Consts.UrlGames(), completion: completion)
     }
 
-    static func getCurrentUser(completion: @escaping(_: User?, WebServiceResponse) -> Void) {
+    static func getMe(completion: @escaping(_: User?, WebServiceResponse) -> Void) {
         getDataTask(Consts.UrlUsers().appendingPathComponent("/me"), completion: completion)
     }
     

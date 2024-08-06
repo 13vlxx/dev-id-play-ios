@@ -16,7 +16,7 @@ struct User: Identifiable, Decodable {
     var medals: Medals
     
     struct Medals: Decodable {
-        var bonze: Double
+        var bronze: Double
         var silver: Double
         var gold: Double
     }
