@@ -90,8 +90,6 @@ class OAuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationC
             
             self?.exchangeCodeForToken(code: code) { accessToken, refreshToken in
                 self?.isLoading = false
-                print("Access Token: \(accessToken ?? "nil")")
-                print("Refresh Token: \(refreshToken ?? "nil")")
                 callback(accessToken, refreshToken)
             }
         }

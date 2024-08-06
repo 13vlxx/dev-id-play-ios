@@ -15,9 +15,19 @@ struct CreateMatchView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                makeTopContent()
-                
-                makeAvailableGames()
+                if gameVM.isLoading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .scaleEffect(1.5)
+                        .padding(.top, 20)
+                        .frame(maxWidth: .infinity)
+                } else {
+                    ScrollView {
+                        makeTopContent()
+                        
+                        makeAvailableGames()
+                    }
+                }
                 Spacer()
             }
             .padding(.horizontal, 20)
@@ -114,7 +124,7 @@ extension CreateMatchView {
     }
     
     func makeAvailableGames() -> some View {
-        VStack(spacing: 10) {
+        LazyVStack(spacing: 10) {
             ForEach(gameVM.filteredGames) { g in
                 GameView(game: g, isSelected: gameVM.selectedGame == g)
                     .onTapGesture {

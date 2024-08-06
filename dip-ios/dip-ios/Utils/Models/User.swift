@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Identifiable, Decodable {
     var id: String
     var firstname: String
     var lastname: String
@@ -15,7 +15,7 @@ struct User {
     var logoUrl: String
     var medals: Medals
     
-    struct Medals {
+    struct Medals: Decodable {
         var bonze: Double
         var silver: Double
         var gold: Double

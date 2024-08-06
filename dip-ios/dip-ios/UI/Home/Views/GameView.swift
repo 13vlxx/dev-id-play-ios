@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct GameView: View {
     let game: Game
@@ -43,7 +44,7 @@ struct GameView: View {
                         .font(.system(size: 10, weight: .light))
                 }
                 
-                Image(game.imageUrl)
+                WebImage(url: URL(string: game.imageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 120, height: 60)

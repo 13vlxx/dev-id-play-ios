@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Game: Hashable, Identifiable {
+struct Game: Hashable, Identifiable, Decodable {
     var id: String
     var name: String
-    var imageUrl: ImageResource
+    var imageUrl: String
     var gameTime: Int
     var pointsPerWin: Int
     var minPlayers: Int
     var maxPlayers: Int
-    var availableOn: City
+    var availableOn: [City]
 }

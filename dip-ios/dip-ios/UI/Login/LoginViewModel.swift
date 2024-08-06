@@ -9,6 +9,7 @@ import Foundation
 
 class LoginViewModel: BaseViewModel {
     func login(_ token: String) {
+        print(token)
         CurrentUserService.shared.setToken(token)
     }
 }

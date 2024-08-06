@@ -17,9 +17,13 @@ class GameViewModel: BaseViewModel {
     @Published var date = Date.now
     @Published var selectedGame: Game?
     @Published var playersId: [String] = []
+    @Published var games: [Game] = []
+    @Published var errorMessage: String?
     
     override init() {
         self.selectedCity = cities[0]
+        super.init()
+        loadGames()
     }
 
     var cities: [City] = [
@@ -27,15 +31,30 @@ class GameViewModel: BaseViewModel {
         City(id: "2", name: "Toulouse"),
     ]
     
-    
-    var games: [Game] = [
-        Game(id: "1", name: "Uno", imageUrl: .unoGame, gameTime: 15, pointsPerWin: 10, minPlayers: 2, maxPlayers: 8, availableOn: City(id: "1", name: "Marseille")),
-        Game(id: "3", name: "Billard", imageUrl: .billardGame, gameTime: 30, pointsPerWin: 20, minPlayers: 2, maxPlayers: 4, availableOn: City(id: "1", name: "Marseille")),
-        Game(id: "2", name: "Dos", imageUrl: .unoGame, gameTime: 15, pointsPerWin: 10, minPlayers: 2, maxPlayers: 8, availableOn: City(id: "2", name: "Toulouse"))
-    ]
-    
     var filteredGames: [Game] {
-        games.filter { $0.availableOn.id == selectedCity.id }
+        return games.filter { game in
+            game.availableOn.contains { city in
+                city.name == selectedCity.name
+            }
+        }
+    }
+    
+    func loadGames() {
+        isLoading = true
+        errorMessage = nil
+        
+        WebService.getGames { [weak self] games, response in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                
+                if response.isSuccess, let games = games {
+                    self?.games = games
+                } else {
+                    self?.errorMessage = "Une erreur est survenue lors du chargement des jeux."
+                    print("Erreur de chargement : \(self?.errorMessage ?? "")")
+                }
+            }
+        }
     }
     
     func selectGame(game: Game) {

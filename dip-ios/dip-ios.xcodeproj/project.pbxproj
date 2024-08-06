@@ -17,13 +17,14 @@
 		FA56BD242C4557F80093F619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD232C4557F80093F619 /* User.swift */; };
 		FA56BD2A2C455BCE0093F619 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD292C455BCE0093F619 /* BaseViewModel.swift */; };
 		FA56BD2C2C455C7F0093F619 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD2B2C455C7F0093F619 /* LoginViewModel.swift */; };
-		FA56BD2F2C455DFA0093F619 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD2E2C455DFA0093F619 /* ApiService.swift */; };
 		FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD302C466DFC0093F619 /* RuleView.swift */; };
 		FA56BD332C4674DB0093F619 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD322C4674DB0093F619 /* Rule.swift */; };
 		FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD342C46781A0093F619 /* RuleItem.swift */; };
 		FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */; };
 		FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBEF2C5244B00093CB3E /* Game.swift */; };
 		FAA1EBF22C5245860093CB3E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBF12C5245860093CB3E /* City.swift */; };
+		FAC672112C620D6000B53C9F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */; };
+		FAC672132C62239400B53C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC672122C62239400B53C9F /* HomeViewModel.swift */; };
 		FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */; };
 		FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */; };
 		FAD742042C47A1F200CCB7E4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */; };
@@ -32,6 +33,7 @@
 		FAE6DD892C5101F500273038 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD882C5101F500273038 /* GameView.swift */; };
 		FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */; };
 		FAFA2FD82C60F3E900607A34 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */; };
+		FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2FD92C610D0E00607A34 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,13 +48,13 @@
 		FA56BD232C4557F80093F619 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA56BD292C455BCE0093F619 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FA56BD2B2C455C7F0093F619 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FA56BD2E2C455DFA0093F619 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		FA56BD302C466DFC0093F619 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		FA56BD322C4674DB0093F619 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		FA56BD342C46781A0093F619 /* RuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleItem.swift; sourceTree = "<group>"; };
 		FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FAA1EBEF2C5244B00093CB3E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FAA1EBF12C5245860093CB3E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		FAC672122C62239400B53C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		FAE6DD882C5101F500273038 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayersView.swift; sourceTree = "<group>"; };
 		FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		FAFA2FD92C610D0E00607A34 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC672112C620D6000B53C9F /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,8 +186,8 @@
 		FA56BD2D2C455DD50093F619 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FA56BD2E2C455DFA0093F619 /* ApiService.swift */,
 				FA1D02F82C5393C1008B9482 /* OAuthManager.swift */,
+				FAFA2FD92C610D0E00607A34 /* WebService.swift */,
 				FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */,
 			);
 			path = Managers;
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */,
+				FAC672122C62239400B53C9F /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -250,6 +255,9 @@
 			dependencies = (
 			);
 			name = "dip-ios";
+			packageProductDependencies = (
+				FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */,
+			);
 			productName = "dip-ios";
 			productReference = FA56BD092C4525190093F619 /* dip-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +286,9 @@
 				Base,
 			);
 			mainGroup = FA56BD002C4525190093F619;
+			packageReferences = (
+				FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = FA56BD0A2C4525190093F619 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -314,6 +325,7 @@
 				FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */,
 				FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */,
 				FA56BD2C2C455C7F0093F619 /* LoginViewModel.swift in Sources */,
+				FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */,
 				FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */,
 				FA56BD1F2C4541730093F619 /* LoginView.swift in Sources */,
 				FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */,
@@ -322,9 +334,9 @@
 				FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */,
 				FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */,
 				FAFA2FD82C60F3E900607A34 /* CurrentUserService.swift in Sources */,
+				FAC672132C62239400B53C9F /* HomeViewModel.swift in Sources */,
 				FAE6DD872C50F93300273038 /* CreateMatchView.swift in Sources */,
 				FAD742042C47A1F200CCB7E4 /* NotificationsView.swift in Sources */,
-				FA56BD2F2C455DFA0093F619 /* ApiService.swift in Sources */,
 				FA56BD0D2C4525190093F619 /* dip_iosApp.swift in Sources */,
 				FAA1EBF22C5245860093CB3E /* City.swift in Sources */,
 			);
@@ -534,6 +546,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA56BD012C4525190093F619 /* Project object */;
 }
