@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftEntryKit
 
 class GameViewModel: BaseViewModel {
     @Published var selectedCity: City {
@@ -17,13 +18,32 @@ class GameViewModel: BaseViewModel {
     @Published var date = Date.now
     @Published var selectedGame: Game?
     @Published var playersId: [String] = []
-    @Published var games: [Game] = []
+    @Published var players: [User] = []
     @Published var errorMessage: String?
+    @Published var games = GameManager.shared.games
     
     override init() {
         self.selectedCity = cities[0]
         super.init()
-        loadGames()
+    }
+    
+    func fetchPlayers() {
+        WebService.getAllUsers { [weak self] users, response in
+            DispatchQueue.main.async {
+                if response.isSuccess, let users = users {
+                    self?.players = users.filter { $0.id != CurrentUserService.shared.currentUser?.id }
+                    print(users)
+                } else {
+                    SwiftEntryKit.showErrorMessage(message: "No players")
+                }
+            }
+        }
+    }
+    
+    func refresh() {
+        GameManager.shared.fetchGames {
+            self.games = GameManager.shared.games
+        }
     }
 
     var cities: [City] = [
@@ -35,24 +55,6 @@ class GameViewModel: BaseViewModel {
         return games.filter { game in
             game.availableOn.contains { city in
                 city.name == selectedCity.name
-            }
-        }
-    }
-    
-    func loadGames() {
-        isLoading = true
-        errorMessage = nil
-        
-        WebService.getGames { [weak self] games, response in
-            DispatchQueue.main.async {
-                self?.isLoading = false
-                
-                if response.isSuccess, let games = games {
-                    self?.games = games
-                } else {
-                    self?.errorMessage = "Une erreur est survenue lors du chargement des jeux."
-                    print("Erreur de chargement : \(self?.errorMessage ?? "")")
-                }
             }
         }
     }

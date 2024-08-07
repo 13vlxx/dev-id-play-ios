@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import SwiftEntryKit
 
 enum HomeSheetEnum: Identifiable {
     var id: Self {
@@ -30,7 +31,10 @@ struct HomeView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isNewMatchSheetPresented = false
     @State private var showHomeSheet: HomeSheetEnum?
-    @State private var isProfileSheetPresented = false
+    @State private var showProfileView = false
+    @ObservedObject private var currentUser = CurrentUserService.shared
+    @ObservedObject private var homeVM = HomeViewModel()
+    @ObservedObject private var modalManager = ModalManager.shared
     
     init() {
         let apparence = UINavigationBarAppearance()
@@ -42,30 +46,37 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
-                VStack(spacing: 0) {
-                    makeHeader()
-                    
-                    VStack(spacing: 24) {
-                        makeMatchesSection(homeSheetEnum: .upcomming)
+            if showProfileView {
+                ProfileView()
+                    .transition(.move(edge: .bottom))
+            } else {
+                ScrollView {
+                    VStack(spacing: 0) {
+                        makeHeader()
                         
-                        makeMatchesSection(homeSheetEnum: .finished)
+                        VStack(spacing: 24) {
+                            makeMatchesSection(homeSheetEnum: .upcomming)
+                            
+                            makeMatchesSection(homeSheetEnum: .finished)
+                        }
+                        .padding(.bottom, 80)
                     }
-                    .padding(.bottom, 80)
+                    .background()
                 }
-                .background()
+                .refreshable {
+                    // TODO: Refresh les match
+                    SwiftEntryKit.showSuccessMessage(message: "Refreshing")
+                }
+                .ignoresSafeArea(edges: .top)
+                
+                makeNewMatchButton()
             }
-            .ignoresSafeArea(edges: .top)
-            
-            makeNewMatchButton()
+        }
+        .onDisappear {
+            showProfileView = false
         }
         .sheet(isPresented: $isNewMatchSheetPresented, content: {
             CreateMatchView()
-        })
-        .sheet(isPresented: $isProfileSheetPresented, content: {
-            Button("logout") {
-                CurrentUserService.shared.logout()
-            }
         })
         .sheet(item: $showHomeSheet) { item in
             switch item {
@@ -89,14 +100,23 @@ extension HomeView {
             .frame(height: 200)
             
             HStack {
-                Text("Bonjour Alex")
+                Text("Bonjour \(currentUser.currentUser?.firstname ?? "")")
                 
                 Spacer()
                 
-                Image(systemName: "circle")
-                    .onTapGesture {
-                        isProfileSheetPresented = true
+                Button {
+                    withAnimation {
+                        showProfileView = true
                     }
+                } label: {
+                    WebImage(url: URL(string: homeVM.logo))
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle().stroke(lineWidth: 1)
+                        }
+                }
             }
             .font(.system(size: 30))
             .fontWeight(.bold)

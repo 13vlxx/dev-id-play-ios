@@ -27,6 +27,9 @@ struct CreateMatchView: View {
                         
                         makeAvailableGames()
                     }
+                    .refreshable {
+                        gameVM.refresh()
+                    }
                 }
                 Spacer()
             }

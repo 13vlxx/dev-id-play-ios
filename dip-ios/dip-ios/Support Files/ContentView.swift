@@ -9,14 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var userService = CurrentUserService.shared
+    @StateObject private var splashVM = SplashViewModel()
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(.neutral)
     }
     
     var body: some View {
-        VStack {
-            if userService.isLoggedIn {
+        ZStack {
+            if splashVM.isDataLoaded == false {
+                SplashView(splashVM: splashVM)
+            }
+            else if userService.isLoggedIn {
                 VStack {
                     TabView {
                         HomeView()
@@ -44,12 +48,8 @@ struct ContentView: View {
                             }
                     }
                 }
-                .transition(.move(edge: .trailing))
-                .animation(.easeInOut, value: userService.isLoggedIn)
             } else {
                 LoginView()
-                .transition(.move(edge: .leading))
-                .animation(.easeInOut, value: userService.isLoggedIn)
             }
         }
     }

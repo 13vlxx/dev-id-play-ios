@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Identifiable, Decodable {
+struct User: Identifiable, Decodable, Hashable {
     var id: String
     var firstname: String
     var lastname: String
@@ -15,9 +15,13 @@ struct User: Identifiable, Decodable {
     var logoUrl: String
     var medals: Medals
     
-    struct Medals: Decodable {
+    struct Medals: Decodable, Hashable {
         var bronze: Double
         var silver: Double
         var gold: Double
+    }
+    
+    func getFullName() -> String {
+        return self.firstname + " " + self.lastname
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CurrentUserService: ObservableObject {
     @Published var isLoggedIn: Bool {
@@ -32,11 +33,16 @@ class CurrentUserService: ObservableObject {
     
     func setToken(_ token: String) {
         userDefaults.set(token, forKey: tokenKey)
-        isLoggedIn = true
+        DispatchQueue.main.async {
+            withAnimation {
+                self.isLoggedIn = true
+            }
+        }
     }
     
-    func fetchCurrentUser() {
+    func fetchCurrentUser(callback: @escaping () -> Void) {
         guard getToken() != nil else {
+            callback()
             print("No token available")
             return
         }
@@ -52,17 +58,27 @@ class CurrentUserService: ObservableObject {
                         self?.logout()
                     }
                 }
+                callback()
             }
         }
     }
     
     func logout() {
         userDefaults.removeObject(forKey: tokenKey)
-        isLoggedIn = false
+        DispatchQueue.main.async {
+            withAnimation {
+                self.isLoggedIn = false
+            }
+        }
+        currentUser = nil
     }
     
     private func checkLoginStatus() {
         let token = getToken()
-        isLoggedIn = token != nil
+        withAnimation {
+            DispatchQueue.main.async {
+                self.isLoggedIn = token != nil
+            }
+        }
     }
 }

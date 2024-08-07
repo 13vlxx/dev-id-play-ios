@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct SelectPlayersView: View {
     @Environment(\.dismiss) var dismiss
@@ -51,6 +52,9 @@ struct SelectPlayersView: View {
                     }
                 }
             }
+            .onAppear {
+                gameVM.fetchPlayers()
+            }
             .background(.dark)
         }
         .navigationTitle("Liste des joueurs")
@@ -88,14 +92,18 @@ extension SelectPlayersView {
         .foregroundStyle(.white)
     }
     
-    func makePlayer(name: String, isChecked: Bool) -> some View {
+    func makePlayer(player: User, isChecked: Bool) -> some View {
         HStack {
-            Image(systemName: "circle.fill")
+            WebImage(url: URL(string: player.logoUrl))
                 .resizable()
                 .frame(width: 35, height: 35)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(lineWidth: 1)
+                }
             
             VStack(alignment: .leading){
-                Text(name)
+                Text(player.getFullName())
                 Text("100000 pts")
                     .font(.system(size: 13))
                     .foregroundStyle(.gray)
@@ -113,13 +121,13 @@ extension SelectPlayersView {
     
     func makePlayersList() -> some View {
         VStack(spacing: 10) {
-            ForEach(players, id: \.self) { p in
-                makePlayer(name: p, isChecked: gameVM.playersId.contains(p))
+            ForEach(gameVM.players, id: \.self) { p in
+                makePlayer(player: p, isChecked: gameVM.playersId.contains(p.id))
                     .onTapGesture {
-                        if let index = gameVM.playersId.firstIndex(of: p) {
+                        if let index = gameVM.playersId.firstIndex(of: p.id) {
                             gameVM.removePlayer(index: index)
                         } else {
-                            gameVM.addPlayer(playerId: p)
+                            gameVM.addPlayer(playerId: p.id)
                         }
                     }
             }

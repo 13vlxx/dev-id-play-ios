@@ -8,5 +8,9 @@
 import Foundation
 
 class HomeViewModel: BaseViewModel {
+    @Published var logo: String
     
+    override init() {
+        self.logo = CurrentUserService.shared.currentUser?.logoUrl ?? ""
+    }
 }
