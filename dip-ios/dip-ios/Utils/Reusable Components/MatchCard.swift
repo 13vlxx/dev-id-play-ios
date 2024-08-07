@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 enum MatchCardStatus {
     case win
@@ -15,12 +16,12 @@ enum MatchCardStatus {
 
 struct MatchCard: View {
     var type: MatchCardStatus
-    var gameName: String
+    var match: Match
     
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                Image("UnoGame")
+                WebImage(url: URL(string: match.game.imageUrl))
                     .resizable()
                     .frame(height: 166)
                 
@@ -44,11 +45,11 @@ extension MatchCard {
     func makeMatchInfos() -> some View {
         VStack(spacing: 5) {
             HStack {
-                Text(gameName)
+                Text(match.game.name)
                 
                 Spacer()
                 
-                Text("12 avr. 2023")
+                Text(formatDateString(match.date))
                     .font(.system(size: 12))
                     .padding(8)
                     .background(.lightNeutral)
@@ -57,10 +58,12 @@ extension MatchCard {
             
             HStack {
                 HStack(spacing: -15) {
-                    ForEach(0..<3) {_ in
-                        Image(systemName: "circle.fill")
+                    ForEach(match.players.filter {$0.id != CurrentUserService.shared.currentUser?.id}) { u in
+                        WebImage(url: URL(string: u.logoUrl))
+                            .resizable()
+                            .clipShape(Circle())
                             .overlay {
-                                Circle().stroke(.red, lineWidth: 1)
+                                Circle().stroke(.white, lineWidth: 1)
                             }
                             .frame(width: 25, height: 25)
                     }
@@ -79,8 +82,4 @@ extension MatchCard {
         .padding(.vertical, 10)
         .background(.neutral)
     }
-}
-
-#Preview {
-    MatchCard(type: MatchCardStatus.normal, gameName: "Uno")
 }

@@ -36,11 +36,13 @@
 		FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */; };
 		FAFA2FD82C60F3E900607A34 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */; };
 		FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2FD92C610D0E00607A34 /* WebService.swift */; };
-		FAFF203E2C635B5C007E0971 /* ModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF203D2C635B5C007E0971 /* ModalManager.swift */; };
 		FAFF20432C635CCC007E0971 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF20422C635CCC007E0971 /* ProfileView.swift */; };
 		FAFF20452C6372A4007E0971 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF20442C6372A4007E0971 /* GameManager.swift */; };
 		FAFF20482C637597007E0971 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF20472C637597007E0971 /* SwiftEntryKit */; };
 		FAFF204B2C63762D007E0971 /* SwiftEntryKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF204A2C63762D007E0971 /* SwiftEntryKit+Extensions.swift */; };
+		FAFF204E2C63A11E007E0971 /* TransformDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF204D2C63A11E007E0971 /* TransformDate.swift */; };
+		FAFF20502C63A65B007E0971 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF204F2C63A65B007E0971 /* MatchManager.swift */; };
+		FAFF20522C63A6D1007E0971 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF20512C63A6D1007E0971 /* Match.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,10 +75,12 @@
 		FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayersView.swift; sourceTree = "<group>"; };
 		FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		FAFA2FD92C610D0E00607A34 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
-		FAFF203D2C635B5C007E0971 /* ModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalManager.swift; sourceTree = "<group>"; };
 		FAFF20422C635CCC007E0971 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FAFF20442C6372A4007E0971 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		FAFF204A2C63762D007E0971 /* SwiftEntryKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftEntryKit+Extensions.swift"; sourceTree = "<group>"; };
+		FAFF204D2C63A11E007E0971 /* TransformDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformDate.swift; sourceTree = "<group>"; };
+		FAFF204F2C63A65B007E0971 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
+		FAFF20512C63A6D1007E0971 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FA56BD282C455BBB0093F619 /* Reusable Components */,
+				FAFF204C2C63A10C007E0971 /* Functions */,
 				FA56BD222C4557760093F619 /* Models */,
 				FAFF20492C637615007E0971 /* Extensions */,
 				FA56BD2D2C455DD50093F619 /* Managers */,
@@ -176,6 +181,7 @@
 			children = (
 				FA56BD232C4557F80093F619 /* User.swift */,
 				FAA1EBEF2C5244B00093CB3E /* Game.swift */,
+				FAFF20512C63A6D1007E0971 /* Match.swift */,
 				FA56BD322C4674DB0093F619 /* Rule.swift */,
 				FAA1EBF12C5245860093CB3E /* City.swift */,
 			);
@@ -206,8 +212,8 @@
 				FA1D02F82C5393C1008B9482 /* OAuthManager.swift */,
 				FAFA2FD92C610D0E00607A34 /* WebService.swift */,
 				FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */,
-				FAFF203D2C635B5C007E0971 /* ModalManager.swift */,
 				FAFF20442C6372A4007E0971 /* GameManager.swift */,
+				FAFF204F2C63A65B007E0971 /* MatchManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -315,6 +321,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FAFF204C2C63A10C007E0971 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF204D2C63A11E007E0971 /* TransformDate.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,6 +409,7 @@
 			files = (
 				FA56BD242C4557F80093F619 /* User.swift in Sources */,
 				FAE6DD852C50F40000273038 /* MatchesView.swift in Sources */,
+				FAFF20502C63A65B007E0971 /* MatchManager.swift in Sources */,
 				FAC672182C624AB200B53C9F /* SplashView.swift in Sources */,
 				FA56BD332C4674DB0093F619 /* Rule.swift in Sources */,
 				FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */,
@@ -403,6 +418,7 @@
 				FAFF20452C6372A4007E0971 /* GameManager.swift in Sources */,
 				FAE6DD892C5101F500273038 /* GameView.swift in Sources */,
 				FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */,
+				FAFF204E2C63A11E007E0971 /* TransformDate.swift in Sources */,
 				FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */,
 				FA56BD2C2C455C7F0093F619 /* LoginViewModel.swift in Sources */,
 				FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */,
@@ -410,12 +426,12 @@
 				FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */,
 				FA56BD1F2C4541730093F619 /* LoginView.swift in Sources */,
 				FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */,
+				FAFF20522C63A6D1007E0971 /* Match.swift in Sources */,
 				FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */,
 				FA56BD0F2C4525190093F619 /* ContentView.swift in Sources */,
 				FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */,
 				FAE6DD8B2C512EF200273038 /* SelectPlayersView.swift in Sources */,
 				FAFA2FD82C60F3E900607A34 /* CurrentUserService.swift in Sources */,
-				FAFF203E2C635B5C007E0971 /* ModalManager.swift in Sources */,
 				FAFF204B2C63762D007E0971 /* SwiftEntryKit+Extensions.swift in Sources */,
 				FAC672132C62239400B53C9F /* HomeViewModel.swift in Sources */,
 				FAC6721A2C624B4500B53C9F /* SplashViewModel.swift in Sources */,

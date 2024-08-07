@@ -34,7 +34,6 @@ struct HomeView: View {
     @State private var showProfileView = false
     @ObservedObject private var currentUser = CurrentUserService.shared
     @ObservedObject private var homeVM = HomeViewModel()
-    @ObservedObject private var modalManager = ModalManager.shared
     
     init() {
         let apparence = UINavigationBarAppearance()
@@ -149,8 +148,8 @@ extension HomeView {
                     Spacer()
                         .frame(width: 20)
                     
-                    ForEach(0..<5) { _ in
-                        MatchCard(type: MatchCardStatus.normal, gameName: "Uno")
+                    ForEach(homeSheetEnum == .upcomming ? MatchManager.shared.matches!.upcoming : MatchManager.shared.matches!.finished) { m in
+                        MatchCard(type: MatchCardStatus.normal, match: m)
                             .frame(width: 250)
                             .padding(.trailing, 20)
                     }

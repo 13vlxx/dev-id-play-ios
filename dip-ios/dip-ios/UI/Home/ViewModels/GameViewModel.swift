@@ -17,10 +17,11 @@ class GameViewModel: BaseViewModel {
     @Published var numberOfPlayers = 2
     @Published var date = Date.now
     @Published var selectedGame: Game?
-    @Published var playersId: [String] = []
+    @Published var playersId: [String] = [CurrentUserService.shared.currentUser!.id]
     @Published var players: [User] = []
     @Published var errorMessage: String?
     @Published var games = GameManager.shared.games
+    @Published var search = ""
     
     override init() {
         self.selectedCity = cities[0]
@@ -89,10 +90,14 @@ class GameViewModel: BaseViewModel {
     }
     
     func getNumberOfPlayersRemainingToSelect() -> Int {
-        return (self.numberOfPlayers - self.playersId.count) - 1
+        return (self.numberOfPlayers - self.playersId.count)
     }
     
     func areAllPlayersSelected() -> Bool {
         return self.getNumberOfPlayersRemainingToSelect() == 0 ? true : false
+    }
+    
+    func createMatch() {
+        
     }
 }

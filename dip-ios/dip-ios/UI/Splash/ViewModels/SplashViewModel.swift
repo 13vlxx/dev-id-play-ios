@@ -22,6 +22,10 @@ class SplashViewModel: BaseViewModel {
         GameManager.shared.fetchGames {
             group.leave()
         }
+        group.enter()
+        MatchManager.shared.fetchMatches {
+            group.leave()
+        }
         
         group.notify(queue: .main) {
             withAnimation {

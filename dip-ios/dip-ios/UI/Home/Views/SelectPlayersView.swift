@@ -11,9 +11,6 @@ import SDWebImageSwiftUI
 struct SelectPlayersView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var gameVM: GameViewModel
-    @State private var search: String = ""
-    @State private var selectedPlayers: [String] = []
-    private var players = ["Alexandru Rusescu", "Alexis Serbelloni"]
     
     init(gameVM: GameViewModel) {
         self.gameVM = gameVM
@@ -43,7 +40,7 @@ struct SelectPlayersView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            print("\(gameVM.selectedGame!.id) + \(gameVM.date) + \(gameVM.playersId)")
+                            print("\(transformDate(gameVM.date.description))")
                         } label: {
                             Text("Valider")
                         }
@@ -82,7 +79,7 @@ extension SelectPlayersView {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(.gray)
                 
-                TextField("Rechercher une personne", text: $search)
+                TextField("Rechercher une personne", text: $gameVM.search)
             }
             .padding()
             .background(.neutral)

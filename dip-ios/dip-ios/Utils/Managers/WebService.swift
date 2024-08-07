@@ -18,11 +18,13 @@ class WebService {
         static func UrlUsers() -> URL {
             return URL(string: "\(baseUrl)/users")!
         }
+        
+        static func UrlMatches() -> URL {
+            return URL(string: "\(baseUrl)/matches")!
+        }
     }
     
-    static func getGames(completion: @escaping(_: [Game]?, WebServiceResponse) -> Void) {
-        getDataTask(Consts.UrlGames(), completion: completion)
-    }
+    // USERS
     
     static func getAllUsers(completion: @escaping(_: [User]?, WebServiceResponse) -> Void) {
         getDataTask(Consts.UrlUsers(), completion: completion)
@@ -31,6 +33,20 @@ class WebService {
     static func getMe(completion: @escaping(_: User?, WebServiceResponse) -> Void) {
         getDataTask(Consts.UrlUsers().appendingPathComponent("/me"), completion: completion)
     }
+    
+    // GAMES
+    
+    static func getGames(completion: @escaping(_: [Game]?, WebServiceResponse) -> Void) {
+        getDataTask(Consts.UrlGames(), completion: completion)
+    }
+    
+    // MATCHES
+    
+    static func getUserDashboard(completion: @escaping(_: GetUserDashboard?, WebServiceResponse) -> Void) {
+        getDataTask(Consts.UrlMatches().appendingPathComponent("/home"), completion: completion)
+    }
+    
+    // CONFIG
     
     private static func getDataTask<T: Decodable>(_ URL: URL, completion: @escaping (T?, WebServiceResponse) -> Void) {
         dataTask(URL, body: nil, httpMethod: .get, completion: completion)
