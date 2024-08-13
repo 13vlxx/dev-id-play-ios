@@ -40,7 +40,10 @@ struct SelectPlayersView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            print("\(transformDate(gameVM.date.description))")
+                            gameVM.createMatch { isSuccess in
+                                dismiss()
+                                dismiss()
+                            }
                         } label: {
                             Text("Valider")
                         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftEntryKit
 
 class MatchManager: ObservableObject {
     static let shared = MatchManager()
@@ -18,12 +19,23 @@ class MatchManager: ObservableObject {
                 if response.isSuccess, let matches = matches {
                     self?.matches = matches
                 } else {
-//                    TODO: self?.errorMessage = "Une erreur est survenue lors du chargement des jeux."
-//                    print("Erreur de chargement : \(self?.errorMessage ?? "")")
+                    SwiftEntryKit.showErrorMessage(message: response.error?.localizedDescription ?? "Matchs indisponnibles")
                 }
                 callback()
             }
         }
     }
-
+    
+    func createMatch(createMatchDto: CreateMatchDto, callback: @escaping(Bool) -> Void) {
+        print(createMatchDto)
+        WebService.postCreateMatch(createMatchDto: createMatchDto) { response in
+            switch response {
+            case .success(_):
+                SwiftEntryKit.showSuccessMessage(message: "Invitation envoyée avec succès")
+                callback(true)
+            case .failure(_):
+                SwiftEntryKit.showErrorMessage(message: "Vous avez déjà joué avec ce joueur")
+            }
+        }
+    }
 }

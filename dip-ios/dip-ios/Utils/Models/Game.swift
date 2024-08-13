@@ -18,3 +18,9 @@ struct Game: Hashable, Identifiable, Decodable {
     var maxPlayers: Int
     var availableOn: [City]
 }
+
+struct LiteGame: Hashable, Identifiable, Decodable {
+    var id: String
+    var name: String
+    var imageUrl: String
+}

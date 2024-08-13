@@ -40,10 +40,10 @@ class CurrentUserService: ObservableObject {
         }
     }
     
-    func fetchCurrentUser(callback: @escaping () -> Void) {
+    func fetchCurrentUser(callback: @escaping (Bool) -> Void) {
         guard getToken() != nil else {
-            callback()
             print("No token available")
+            callback(false)
             return
         }
         
@@ -51,14 +51,12 @@ class CurrentUserService: ObservableObject {
             DispatchQueue.main.async {
                 if response.isSuccess, let user = user {
                     self?.currentUser = user
-                    print("User fetched successfully: \(user)")
+                    print("User fetched successfully: \(user.getFullName())")
                 } else {
                     print("Failed to fetch user")
-                    if response.statusCode == 401 {
-                        self?.logout()
-                    }
+                    self?.logout()
                 }
-                callback()
+                callback(true)
             }
         }
     }

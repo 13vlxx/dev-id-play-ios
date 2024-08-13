@@ -32,8 +32,9 @@ struct HomeView: View {
     @State private var isNewMatchSheetPresented = false
     @State private var showHomeSheet: HomeSheetEnum?
     @State private var showProfileView = false
+    @State private var showMatchResults = false
     @ObservedObject private var currentUser = CurrentUserService.shared
-    @ObservedObject private var homeVM = HomeViewModel()
+    @StateObject private var homeVM = HomeViewModel()
     
     init() {
         let apparence = UINavigationBarAppearance()
@@ -54,17 +55,25 @@ struct HomeView: View {
                         makeHeader()
                         
                         VStack(spacing: 24) {
-                            makeMatchesSection(homeSheetEnum: .upcomming)
-                            
-                            makeMatchesSection(homeSheetEnum: .finished)
+                            if MatchManager.shared.matches?.finished != [] || MatchManager.shared.matches?.upcoming != [] {
+                                if MatchManager.shared.matches?.upcoming != [] {
+                                    makeMatchesSection(homeSheetEnum: .upcomming)
+                                }
+                                
+                                if MatchManager.shared.matches?.finished != [] {
+                                    makeMatchesSection(homeSheetEnum: .finished)
+                                }
+                            } else {
+                                Text("Aucun match à afficher")
+                            }
                         }
                         .padding(.bottom, 80)
                     }
                     .background()
                 }
                 .refreshable {
-                    // TODO: Refresh les match
-                    SwiftEntryKit.showSuccessMessage(message: "Refreshing")
+                    homeVM.refresh()
+                    SwiftEntryKit.showAlertMessage(message: "Refreshing")
                 }
                 .ignoresSafeArea(edges: .top)
                 
@@ -82,6 +91,9 @@ struct HomeView: View {
             case .finished, .upcomming:
                 MatchesView(homeSheetEnum: item)
             }
+        }
+        .sheet(isPresented: $showMatchResults) {
+            MatchResultsSheet(homeVM: homeVM ,match: homeVM.selectedMatch!)
         }
     }
 }
@@ -148,10 +160,14 @@ extension HomeView {
                     Spacer()
                         .frame(width: 20)
                     
-                    ForEach(homeSheetEnum == .upcomming ? MatchManager.shared.matches!.upcoming : MatchManager.shared.matches!.finished) { m in
-                        MatchCard(type: MatchCardStatus.normal, match: m)
+                    ForEach(((homeSheetEnum == .upcomming ? homeVM.matches?.upcoming : homeVM.matches?.finished) ?? [])) { m in
+                        MatchCard(match: m)
                             .frame(width: 250)
                             .padding(.trailing, 20)
+                            .onTapGesture {
+                                homeVM.selectMatch(match: m)
+                                showMatchResults.toggle()
+                            }
                     }
                 }
             }

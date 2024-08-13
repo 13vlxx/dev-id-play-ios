@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftEntryKit
 
 class GameManager: ObservableObject {
     static let shared = GameManager()
@@ -18,8 +19,7 @@ class GameManager: ObservableObject {
                 if response.isSuccess, let games = games {
                     self?.games = games
                 } else {
-//                    TODO: self?.errorMessage = "Une erreur est survenue lors du chargement des jeux."
-//                    print("Erreur de chargement : \(self?.errorMessage ?? "")")
+                    SwiftEntryKit.showErrorMessage(message: "Une erreur est survenue lors du chargement des jeux.")
                 }
                 callback()
             }

@@ -18,8 +18,8 @@ struct MatchesView: View {
                     VStack(spacing: 20) {
                         Spacer()
                             .frame(height: 20)
-                        ForEach(MatchManager.shared.matches!.finished) { m in
-                            MatchCard(type: .loose, match: m)
+                        ForEach(homeSheetEnum == .finished ? MatchManager.shared.matches?.finished ?? [] : MatchManager.shared.matches?.upcoming ?? []) { m in
+                            MatchCard(match: m)
                         }
                     }
                 }

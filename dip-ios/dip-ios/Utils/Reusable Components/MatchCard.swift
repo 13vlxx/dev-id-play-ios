@@ -8,14 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-enum MatchCardStatus {
-    case win
-    case loose
-    case normal
-}
-
 struct MatchCard: View {
-    var type: MatchCardStatus
     var match: Match
     
     var body: some View {
@@ -25,14 +18,16 @@ struct MatchCard: View {
                     .resizable()
                     .frame(height: 166)
                 
-                if type != MatchCardStatus.normal {
-                    HStack {
-                        Text(type == MatchCardStatus.win ? "Gagné" : "Perdu")
-                            .foregroundStyle(.white)
-                            .opacity(1)
+                if let currentUserId = CurrentUserService.shared.currentUser?.id {
+                    if match.status == .finished {
+                        HStack {
+                            Text(match.winners.contains(where: { $0.id == currentUserId }) ? "Gagné" : "Perdu")
+                                .foregroundStyle(.white)
+                                .opacity(1)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 166 / 2)
+                        .background((match.winners.contains(where: { $0.id == currentUserId }) ? Color(.green) : Color(.red)).opacity(0.4))
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 166 / 2)
-                    .background((type == MatchCardStatus.win ? Color(.green) : Color(.red)).opacity(0.4))
                 }
             }
             makeMatchInfos()

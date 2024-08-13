@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct City: Identifiable, Hashable, Equatable, Decodable {
+struct City: Identifiable, Hashable, Decodable {
     var id: String
     var name: String
 }

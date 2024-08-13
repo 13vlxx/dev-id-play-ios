@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA1D02F92C5393C1008B9482 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D02F82C5393C1008B9482 /* OAuthManager.swift */; };
+		FA2F383B2C64E680008C1B3B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F383A2C64E680008C1B3B /* Notification.swift */; };
+		FA2F383D2C64ECED008C1B3B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F383C2C64ECED008C1B3B /* NotificationManager.swift */; };
 		FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4464BA2C4A505100463B90 /* MatchCard.swift */; };
 		FA56BD0D2C4525190093F619 /* dip_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD0C2C4525190093F619 /* dip_iosApp.swift */; };
 		FA56BD0F2C4525190093F619 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD0E2C4525190093F619 /* ContentView.swift */; };
@@ -20,6 +22,8 @@
 		FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD302C466DFC0093F619 /* RuleView.swift */; };
 		FA56BD332C4674DB0093F619 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD322C4674DB0093F619 /* Rule.swift */; };
 		FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD342C46781A0093F619 /* RuleItem.swift */; };
+		FA794FEA2C69EA0100C80861 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA794FE92C69EA0100C80861 /* NotificationsViewModel.swift */; };
+		FA794FF42C6A358200C80861 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA794FF32C6A358200C80861 /* Alamofire */; };
 		FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */; };
 		FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBEF2C5244B00093CB3E /* Game.swift */; };
 		FAA1EBF22C5245860093CB3E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBF12C5245860093CB3E /* City.swift */; };
@@ -30,6 +34,7 @@
 		FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */; };
 		FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */; };
 		FAD742042C47A1F200CCB7E4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */; };
+		FADEB7532C6B512A00CFC27C /* MatchResultsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEB7522C6B512900CFC27C /* MatchResultsSheet.swift */; };
 		FAE6DD852C50F40000273038 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD842C50F40000273038 /* MatchesView.swift */; };
 		FAE6DD872C50F93300273038 /* CreateMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD862C50F93300273038 /* CreateMatchView.swift */; };
 		FAE6DD892C5101F500273038 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6DD882C5101F500273038 /* GameView.swift */; };
@@ -45,8 +50,23 @@
 		FAFF20522C63A6D1007E0971 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF20512C63A6D1007E0971 /* Match.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FA794FF12C6A313000C80861 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FA1D02F82C5393C1008B9482 /* OAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
+		FA2F383A2C64E680008C1B3B /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		FA2F383C2C64ECED008C1B3B /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		FA4464BA2C4A505100463B90 /* MatchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCard.swift; sourceTree = "<group>"; };
 		FA56BD092C4525190093F619 /* dip-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dip-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA56BD0C2C4525190093F619 /* dip_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dip_iosApp.swift; sourceTree = "<group>"; };
@@ -60,6 +80,7 @@
 		FA56BD302C466DFC0093F619 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		FA56BD322C4674DB0093F619 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		FA56BD342C46781A0093F619 /* RuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleItem.swift; sourceTree = "<group>"; };
+		FA794FE92C69EA0100C80861 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FAA1EBEF2C5244B00093CB3E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FAA1EBF12C5245860093CB3E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -69,6 +90,7 @@
 		FAD741FF2C47A1C400CCB7E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		FADEB7522C6B512900CFC27C /* MatchResultsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultsSheet.swift; sourceTree = "<group>"; };
 		FAE6DD842C50F40000273038 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
 		FAE6DD862C50F93300273038 /* CreateMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMatchView.swift; sourceTree = "<group>"; };
 		FAE6DD882C5101F500273038 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -88,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA794FF42C6A358200C80861 /* Alamofire in Frameworks */,
 				FAFF20482C637597007E0971 /* SwiftEntryKit in Frameworks */,
 				FAC672112C620D6000B53C9F /* SDWebImageSwiftUI in Frameworks */,
 			);
@@ -181,9 +204,10 @@
 			children = (
 				FA56BD232C4557F80093F619 /* User.swift */,
 				FAA1EBEF2C5244B00093CB3E /* Game.swift */,
+				FAA1EBF12C5245860093CB3E /* City.swift */,
 				FAFF20512C63A6D1007E0971 /* Match.swift */,
 				FA56BD322C4674DB0093F619 /* Rule.swift */,
-				FAA1EBF12C5245860093CB3E /* City.swift */,
+				FA2F383A2C64E680008C1B3B /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,8 +238,17 @@
 				FAFA2FD72C60F3E900607A34 /* CurrentUserService.swift */,
 				FAFF20442C6372A4007E0971 /* GameManager.swift */,
 				FAFF204F2C63A65B007E0971 /* MatchManager.swift */,
+				FA2F383C2C64ECED008C1B3B /* NotificationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA794FE82C69E9EA00C80861 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA794FE92C69EA0100C80861 /* NotificationsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		FAA1EBEB2C5242760093CB3E /* Views */ = {
@@ -226,6 +259,7 @@
 				FAE6DD842C50F40000273038 /* MatchesView.swift */,
 				FAE6DD862C50F93300273038 /* CreateMatchView.swift */,
 				FAE6DD8A2C512EF200273038 /* SelectPlayersView.swift */,
+				FADEB7522C6B512900CFC27C /* MatchResultsSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +318,7 @@
 		FAD741FE2C47A19B00CCB7E4 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				FA794FE82C69E9EA00C80861 /* ViewModels */,
 				FAD742032C47A1F200CCB7E4 /* NotificationsView.swift */,
 			);
 			path = Notifications;
@@ -339,6 +374,7 @@
 				FA56BD052C4525190093F619 /* Sources */,
 				FA56BD062C4525190093F619 /* Frameworks */,
 				FA56BD072C4525190093F619 /* Resources */,
+				FA794FF12C6A313000C80861 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +384,7 @@
 			packageProductDependencies = (
 				FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */,
 				FAFF20472C637597007E0971 /* SwiftEntryKit */,
+				FA794FF32C6A358200C80861 /* Alamofire */,
 			);
 			productName = "dip-ios";
 			productReference = FA56BD092C4525190093F619 /* dip-ios.app */;
@@ -380,6 +417,7 @@
 			packageReferences = (
 				FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				FAFF20462C637597007E0971 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
+				FA794FF22C6A358200C80861 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = FA56BD0A2C4525190093F619 /* Products */;
 			projectDirPath = "";
@@ -407,14 +445,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA794FEA2C69EA0100C80861 /* NotificationsViewModel.swift in Sources */,
 				FA56BD242C4557F80093F619 /* User.swift in Sources */,
 				FAE6DD852C50F40000273038 /* MatchesView.swift in Sources */,
 				FAFF20502C63A65B007E0971 /* MatchManager.swift in Sources */,
 				FAC672182C624AB200B53C9F /* SplashView.swift in Sources */,
 				FA56BD332C4674DB0093F619 /* Rule.swift in Sources */,
+				FADEB7532C6B512A00CFC27C /* MatchResultsSheet.swift in Sources */,
 				FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */,
 				FA56BD2A2C455BCE0093F619 /* BaseViewModel.swift in Sources */,
 				FA1D02F92C5393C1008B9482 /* OAuthManager.swift in Sources */,
+				FA2F383B2C64E680008C1B3B /* Notification.swift in Sources */,
 				FAFF20452C6372A4007E0971 /* GameManager.swift in Sources */,
 				FAE6DD892C5101F500273038 /* GameView.swift in Sources */,
 				FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */,
@@ -424,6 +465,7 @@
 				FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */,
 				FAFF20432C635CCC007E0971 /* ProfileView.swift in Sources */,
 				FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */,
+				FA2F383D2C64ECED008C1B3B /* NotificationManager.swift in Sources */,
 				FA56BD1F2C4541730093F619 /* LoginView.swift in Sources */,
 				FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */,
 				FAFF20522C63A6D1007E0971 /* Match.swift in Sources */,
@@ -648,6 +690,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA794FF22C6A358200C80861 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -667,6 +717,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA794FF32C6A358200C80861 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA794FF22C6A358200C80861 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAC6720F2C620D6000B53C9F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

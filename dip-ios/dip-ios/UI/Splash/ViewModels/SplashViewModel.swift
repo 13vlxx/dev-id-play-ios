@@ -15,8 +15,15 @@ class SplashViewModel: BaseViewModel {
         let group = DispatchGroup()
         
         group.enter()
-        CurrentUserService.shared.fetchCurrentUser {
+        CurrentUserService.shared.fetchCurrentUser { isSuccess in
             group.leave()
+            if !isSuccess {
+                CurrentUserService.shared.logout()
+                withAnimation {
+                    self.isDataLoaded = true
+                }
+                return
+            }
         }
         group.enter()
         GameManager.shared.fetchGames {
@@ -24,6 +31,10 @@ class SplashViewModel: BaseViewModel {
         }
         group.enter()
         MatchManager.shared.fetchMatches {
+            group.leave()
+        }
+        group.enter()
+        NotificationManager.shared.fetchNotifications {
             group.leave()
         }
         

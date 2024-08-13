@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftEntryKit
+import Alamofire
 
 class WebService {
     struct Consts {
-        static let baseUrl = "https://c505-168-220-131-251.ngrok-free.app/api"
+        static let baseUrl = "https://351c-5-104-196-125.ngrok-free.app/api"
         
         static func UrlGames() -> URL {
             return URL(string: "\(baseUrl)/games")!
@@ -21,6 +23,10 @@ class WebService {
         
         static func UrlMatches() -> URL {
             return URL(string: "\(baseUrl)/matches")!
+        }
+        
+        static func UrlNotifications() -> URL {
+            return URL(string: "\(baseUrl)/notifications")!
         }
     }
     
@@ -45,6 +51,93 @@ class WebService {
     static func getUserDashboard(completion: @escaping(_: GetUserDashboard?, WebServiceResponse) -> Void) {
         getDataTask(Consts.UrlMatches().appendingPathComponent("/home"), completion: completion)
     }
+    
+    static func postCreateMatch(createMatchDto: CreateMatchDto, completion: @escaping (Result<CreateMatchResponseDto, Error>) -> Void) {
+        let url = Consts.UrlMatches()
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(CurrentUserService.shared.getToken()!)",
+            "Content-Type": "application/json"
+        ]
+        
+        AF.request(url, method: .post, parameters: createMatchDto, encoder: JSONParameterEncoder.default, headers: headers)
+            .response { response in
+                if let data = response.data {
+                    print("Raw response data: \(String(data: data, encoding: .utf8) ?? "No data")")
+                }
+                print("Response status code: \(response.response?.statusCode ?? 0)")
+            }
+            .responseDecodable(of: CreateMatchResponseDto.self) { response in
+                switch response.result {
+                case .success(let createMatchResponse):
+                    completion(.success(createMatchResponse))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
+    static func putUpdateMatch(matchId: String, updateMatchDto: UpdateMatchDto, completion: @escaping (Bool) -> Void) {
+        let url = Consts.UrlMatches().appendingPathComponent("/\(matchId)")
+        
+        var parameters: [String: Any] = [
+            "status": updateMatchDto.status.rawValue
+        ]
+        
+        if let winners = updateMatchDto.winners {
+            parameters["winners"] = winners
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(CurrentUserService.shared.getToken()!)",
+            "Content-Type": "application/json"
+        ]
+        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                if let error = response.error {
+                    completion(false)
+                    SwiftEntryKit.showErrorMessage(message: "Error: \(error)")
+                } else if let httpResponse = response.response, httpResponse.statusCode == 204 {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+    }
+    
+    // NOTIFICATIONS
+    
+    static func getUserNotifications(completion: @escaping(_: [Notification]?, WebServiceResponse) -> Void){
+        getDataTask(Consts.UrlNotifications(), completion: completion)
+    }
+    
+    static func putUpdateNotificationStatus(notificationId: String, status: NotificationStatusEnum, callback: @escaping (Bool) -> Void) {
+        let url = Consts.UrlNotifications().appendingPathComponent("/\(notificationId)")
+        
+        // Combine parameters and body into a single dictionary
+        let parameters: [String: Any] = [
+            "status": status.rawValue
+        ]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(CurrentUserService.shared.getToken()!)",
+            "Content-Type": "application/json"
+        ]
+        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                if let error = response.error {
+                    SwiftEntryKit.showErrorMessage(message: "Error: \(error)")
+                    callback(false)
+                } else if let httpResponse = response.response, httpResponse.statusCode == 204 {
+                    callback(true)
+                } else {
+                    SwiftEntryKit.showErrorMessage(message: "Unexpected response: \(response)")
+                }
+            }
+    }
+    
     
     // CONFIG
     

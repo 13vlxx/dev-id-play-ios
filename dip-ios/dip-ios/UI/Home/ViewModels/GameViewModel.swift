@@ -33,7 +33,6 @@ class GameViewModel: BaseViewModel {
             DispatchQueue.main.async {
                 if response.isSuccess, let users = users {
                     self?.players = users.filter { $0.id != CurrentUserService.shared.currentUser?.id }
-                    print(users)
                 } else {
                     SwiftEntryKit.showErrorMessage(message: "No players")
                 }
@@ -97,7 +96,9 @@ class GameViewModel: BaseViewModel {
         return self.getNumberOfPlayersRemainingToSelect() == 0 ? true : false
     }
     
-    func createMatch() {
-        
+    func createMatch(callback: @escaping(Bool) -> Void) {
+        MatchManager.shared.createMatch(createMatchDto: CreateMatchDto(gameId: selectedGame!.id, date: date.description, playersId: playersId)) { isSuccess in
+            callback(isSuccess)
+        }
     }
 }

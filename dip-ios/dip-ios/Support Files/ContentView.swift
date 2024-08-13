@@ -20,7 +20,7 @@ struct ContentView: View {
             if splashVM.isDataLoaded == false {
                 SplashView(splashVM: splashVM)
             }
-            else if userService.isLoggedIn {
+            else if userService.isLoggedIn && splashVM.isDataLoaded {
                 VStack {
                     TabView {
                         HomeView()
