@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MatchesView: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var homeVM: HomeViewModel
+    @State private var showMatchResults = false
     let homeSheetEnum: HomeSheetEnum
     
     var body: some View {
@@ -18,8 +20,12 @@ struct MatchesView: View {
                     VStack(spacing: 20) {
                         Spacer()
                             .frame(height: 20)
-                        ForEach(homeSheetEnum == .finished ? MatchManager.shared.matches?.finished ?? [] : MatchManager.shared.matches?.upcoming ?? []) { m in
+                        ForEach(homeSheetEnum == .finished ? MatchManager.shared.matches?.finished.reversed() ?? [] : MatchManager.shared.matches?.upcoming.reversed() ?? []) { m in
                             MatchCard(match: m)
+                                .onTapGesture {
+                                    homeVM.selectMatch(match: m)
+                                    showMatchResults.toggle()
+                                }
                         }
                     }
                 }
@@ -35,6 +41,9 @@ struct MatchesView: View {
                     }
                     .foregroundStyle(.white)
                 }
+            }
+            .sheet(isPresented: $showMatchResults) {
+                MatchResultsSheet(homeVM: homeVM ,match: homeVM.selectedMatch!)
             }
         }
     }

@@ -46,7 +46,48 @@ func formatDateString(_ dateString: String) -> String {
     return ""
 }
 
+func formatDayString(_ date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "EEEE"
+    return formatter.string(from: date)
+}
 
+func formatTimeString(_ date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    return formatter.string(from: date)
+}
 
+func extractDay(from dateString: String) -> String {
+    let dateFormatter = ISO8601DateFormatter()
+    dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    
+    if let date = dateFormatter.date(from: dateString) {
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "d MMM yyyy"
+        dayFormatter.locale = Locale(identifier: "fr_FR")
+        
+        let formattedDate = dayFormatter.string(from: date)
+        
+        let components = formattedDate.components(separatedBy: " ")
+        if components.count == 3,
+           let month = components[1].first?.uppercased() {
+            return "\(components[0]) \(month + components[1].dropFirst().lowercased()) \(components[2])"
+        }
+        
+        return formattedDate
+    }
+    return "Date inconnue"
+}
 
-
+func extractTime(from dateString: String) -> String {
+    let dateFormatter = ISO8601DateFormatter()
+    dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    
+    if let date = dateFormatter.date(from: dateString) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        return timeFormatter.string(from: date)
+    }
+    return "Heure inconnue"
+}

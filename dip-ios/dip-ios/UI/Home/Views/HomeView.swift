@@ -80,6 +80,9 @@ struct HomeView: View {
                 makeNewMatchButton()
             }
         }
+        .onAppear {
+            homeVM.refresh()
+        }
         .onDisappear {
             showProfileView = false
         }
@@ -89,7 +92,7 @@ struct HomeView: View {
         .sheet(item: $showHomeSheet) { item in
             switch item {
             case .finished, .upcomming:
-                MatchesView(homeSheetEnum: item)
+                MatchesView(homeVM: homeVM, homeSheetEnum: item)
             }
         }
         .sheet(isPresented: $showMatchResults) {
@@ -160,7 +163,7 @@ extension HomeView {
                     Spacer()
                         .frame(width: 20)
                     
-                    ForEach(((homeSheetEnum == .upcomming ? homeVM.matches?.upcoming : homeVM.matches?.finished) ?? [])) { m in
+                    ForEach(((homeSheetEnum == .upcomming ? homeVM.matches?.upcoming.reversed() : homeVM.matches?.finished.reversed()) ?? [])) { m in
                         MatchCard(match: m)
                             .frame(width: 250)
                             .padding(.trailing, 20)

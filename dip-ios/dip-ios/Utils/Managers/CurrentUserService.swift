@@ -52,6 +52,7 @@ class CurrentUserService: ObservableObject {
                 if response.isSuccess, let user = user {
                     self?.currentUser = user
                     print("User fetched successfully: \(user.getFullName())")
+                    print(user)
                 } else {
                     print("Failed to fetch user")
                     self?.logout()

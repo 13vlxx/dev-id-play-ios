@@ -21,7 +21,7 @@ struct MatchResultsSheet: View {
                         Spacer().frame(height: 16)
                         MatchCard(match: match)
                         
-                        if match.status == .waitingForResult || match.status == .upcoming {
+                        if match.status == .waitingForResult {
                             HStack {
                                 Image(systemName: "trophy.fill")
                                 
@@ -40,7 +40,7 @@ struct MatchResultsSheet: View {
                     }
                 }
                 
-                if match.status == .waitingForResult || match.status == .upcoming {
+                if match.status == .waitingForResult {
                     Text("N’oublie pas : en cas d’ex-aequo c’est Random.org qui tranche !")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 13))
@@ -64,7 +64,7 @@ struct MatchResultsSheet: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    if match.status == .waitingForResult || match.status == .upcoming {
+                    if match.status == .waitingForResult {
                         Button("Valider") {
                             homeVM.updateWinners { isSuccess in
                                 if isSuccess { dismiss() }
@@ -112,9 +112,15 @@ extension MatchResultsSheet {
         VStack(spacing: 10) {
             ForEach(match.players) { p in
                 VStack(spacing:0) {
-                    makePlayer(player: p, isChecked: (match.status == .waitingForResult || match.status == .upcoming) ? homeVM.winnersId.contains(p.id) : match.winners.contains(where: {$0.id == p.id}))
+                    makePlayer(
+                        player: p,
+                        isChecked: (match.status == .waitingForResult)
+                        ? homeVM.winnersId.contains(where: {$0 == p.id})
+                        : match.status == .upcoming
+                        ? false
+                        : match.winners.contains(where: {$0.id == p.id}))
                         .onTapGesture {
-                            if match.status == .waitingForResult || match.status == .upcoming {
+                            if match.status == .waitingForResult {
                                 if let index = homeVM.winnersId.firstIndex(of: p.id) {
                                     homeVM.removeWinner(index: index)
                                 } else {

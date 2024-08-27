@@ -28,6 +28,15 @@ struct MatchCard: View {
                         .frame(maxWidth: .infinity, maxHeight: 166 / 2)
                         .background((match.winners.contains(where: { $0.id == currentUserId }) ? Color(.green) : Color(.red)).opacity(0.4))
                     }
+                    if match.status == .waitingForResult {
+                        HStack {
+                            Text("En attente")
+                                .foregroundStyle(.black)
+                                .opacity(1)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 166 / 2)
+                        .background(.white).opacity(0.7)
+                    }
                 }
             }
             makeMatchInfos()
@@ -44,7 +53,7 @@ extension MatchCard {
                 
                 Spacer()
                 
-                Text(formatDateString(match.date))
+                Text(extractDay(from: match.date))
                     .font(.system(size: 12))
                     .padding(8)
                     .background(.lightNeutral)
@@ -52,21 +61,20 @@ extension MatchCard {
             }
             
             HStack {
-                HStack(spacing: -15) {
-                    ForEach(match.players.filter {$0.id != CurrentUserService.shared.currentUser?.id}) { u in
+                ZStack {
+                    ForEach(Array(match.players.filter {$0.id != CurrentUserService.shared.currentUser?.id}.enumerated()), id: \.element.id ) {index, u in
                         WebImage(url: URL(string: u.logoUrl))
                             .resizable()
                             .clipShape(Circle())
-                            .overlay {
-                                Circle().stroke(.white, lineWidth: 1)
-                            }
                             .frame(width: 25, height: 25)
+                            .offset(x: CGFloat(index) * 16)
+                            .zIndex(Double(match.players.count - index))
                     }
                 }
                 
                 Spacer()
                 
-                Text("15:30")
+                Text(extractTime(from: match.date))
                     .font(.system(size: 12))
                     .padding(8)
                     .background(.lightNeutral)

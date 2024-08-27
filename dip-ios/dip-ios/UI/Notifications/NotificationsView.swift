@@ -30,6 +30,7 @@ struct NotificationsView: View {
                         notificationsVM.refreshNotifications()
                     }
                 }
+                Spacer().frame(height: 20)
             }
             .offset(y: -40)
         }

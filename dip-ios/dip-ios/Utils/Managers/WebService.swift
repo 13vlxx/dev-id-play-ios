@@ -11,7 +11,7 @@ import Alamofire
 
 class WebService {
     struct Consts {
-        static let baseUrl = "https://351c-5-104-196-125.ngrok-free.app/api"
+        static let baseUrl = "https://6caa-5-104-196-125.ngrok-free.app/api"
         
         static func UrlGames() -> URL {
             return URL(string: "\(baseUrl)/games")!
@@ -186,8 +186,12 @@ class WebService {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             let webServiceResponse = WebServiceResponse(rawData: data, response: response, error: error)
             if error == nil && webServiceResponse.isSuccess, let data = data, webServiceResponse.statusCode != 204 {
+                print("___________________________________________________ -> RESPONSE")
+                print(data)
                 do {
                     let typedData = try JSONDecoder().decode(T.self, from: data)
+                    print("___________________________________________________ -> TYPED RESPONSE JSON")
+                    print(typedData)
                     completion(typedData, webServiceResponse)
                     return
                 } catch {
