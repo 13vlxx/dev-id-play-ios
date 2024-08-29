@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var userService = CurrentUserService.shared
     @StateObject private var splashVM = SplashViewModel()
+    @State private var showSecondarySplash = true
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(.neutral)
@@ -21,31 +22,42 @@ struct ContentView: View {
                 SplashView(splashVM: splashVM)
             }
             else if userService.isLoggedIn && splashVM.isDataLoaded {
-                VStack {
-                    TabView {
-                        HomeView()
-                            .tabItem {
-                                Image(systemName: "gamecontroller.fill")
-                                Text("Jeux")
+                if showSecondarySplash {
+                    SplashView(splashVM: splashVM)
+                        .onAppear {
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    showSecondarySplash = false
+                                }
                             }
-                        
-                        LeaderboardView()
-                            .tabItem {
-                                Image(systemName: "atom")
-                                Text("Classement")
-                            }
-                        
-                        RuleView()
-                            .tabItem {
-                                Image(systemName: "book.fill")
-                                Text("Règles")
-                            }
-                        
-                        NotificationsView()
-                            .tabItem {
-                                Image(systemName: "bell.fill")
-                                Text("Notifications")
-                            }
+                        }
+                } else {
+                    VStack {
+                        TabView {
+                            HomeView()
+                                .tabItem {
+                                    Image(systemName: "gamecontroller.fill")
+                                    Text("Jeux")
+                                }
+                            
+                            LeaderboardView()
+                                .tabItem {
+                                    Image(systemName: "atom")
+                                    Text("Classement")
+                                }
+                            
+                            RuleView()
+                                .tabItem {
+                                    Image(systemName: "book.fill")
+                                    Text("Règles")
+                                }
+                            
+                            NotificationsView()
+                                .tabItem {
+                                    Image(systemName: "bell.fill")
+                                    Text("Notifications")
+                                }
+                        }
                     }
                 }
             } else {

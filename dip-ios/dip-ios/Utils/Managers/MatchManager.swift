@@ -28,7 +28,6 @@ class MatchManager: ObservableObject {
     }
     
     func createMatch(createMatchDto: CreateMatchDto, callback: @escaping(Bool) -> Void) {
-        print(createMatchDto)
         WebService.postCreateMatch(createMatchDto: createMatchDto) { response in
             switch response {
             case .success(_):

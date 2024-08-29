@@ -12,7 +12,7 @@ struct User: Identifiable, Decodable, Hashable {
     var firstname: String
     var lastname: String
     var email: String
-    var logoUrl: String
+    var logoUrl: String?
     var medals: Medals
     var stats: Stats?
     

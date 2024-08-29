@@ -83,7 +83,7 @@ struct MatchResultsSheet: View {
 extension MatchResultsSheet {
     func makePlayer(player: User, isChecked: Bool) -> some View {
         HStack {
-            WebImage(url: URL(string: player.logoUrl))
+            WebImage(url: URL(string: player.logoUrl ?? ""))
                 .resizable()
                 .frame(width: 35, height: 35)
                 .clipShape(Circle())

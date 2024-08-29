@@ -22,11 +22,13 @@
 		FA56BD312C466DFC0093F619 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD302C466DFC0093F619 /* RuleView.swift */; };
 		FA56BD332C4674DB0093F619 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD322C4674DB0093F619 /* Rule.swift */; };
 		FA56BD352C46781B0093F619 /* RuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56BD342C46781A0093F619 /* RuleItem.swift */; };
+		FA6EEAFA2C7E13C000EEC196 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EEAF92C7E13C000EEC196 /* LeaderboardViewModel.swift */; };
 		FA794FEA2C69EA0100C80861 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA794FE92C69EA0100C80861 /* NotificationsViewModel.swift */; };
 		FA794FF42C6A358200C80861 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA794FF32C6A358200C80861 /* Alamofire */; };
 		FAA1EBEE2C52438C0093CB3E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */; };
 		FAA1EBF02C5244B00093CB3E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBEF2C5244B00093CB3E /* Game.swift */; };
 		FAA1EBF22C5245860093CB3E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1EBF12C5245860093CB3E /* City.swift */; };
+		FAC46F002C7DFE1400FB8A66 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46EFF2C7DFE1400FB8A66 /* Leaderboard.swift */; };
 		FAC672112C620D6000B53C9F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FAC672102C620D6000B53C9F /* SDWebImageSwiftUI */; };
 		FAC672132C62239400B53C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC672122C62239400B53C9F /* HomeViewModel.swift */; };
 		FAC672182C624AB200B53C9F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC672172C624AB200B53C9F /* SplashView.swift */; };
@@ -81,10 +83,12 @@
 		FA56BD302C466DFC0093F619 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
 		FA56BD322C4674DB0093F619 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		FA56BD342C46781A0093F619 /* RuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleItem.swift; sourceTree = "<group>"; };
+		FA6EEAF92C7E13C000EEC196 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		FA794FE92C69EA0100C80861 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		FAA1EBED2C52438C0093CB3E /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FAA1EBEF2C5244B00093CB3E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FAA1EBF12C5245860093CB3E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		FAC46EFF2C7DFE1400FB8A66 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		FAC672122C62239400B53C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAC672172C624AB200B53C9F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		FAC672192C624B4500B53C9F /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				FAFF20512C63A6D1007E0971 /* Match.swift */,
 				FA56BD322C4674DB0093F619 /* Rule.swift */,
 				FA2F383A2C64E680008C1B3B /* Notification.swift */,
+				FAC46EFF2C7DFE1400FB8A66 /* Leaderboard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +248,14 @@
 				FA2F383C2C64ECED008C1B3B /* NotificationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA6EEAF82C7E13AB00EEC196 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA6EEAF92C7E13C000EEC196 /* LeaderboardViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		FA794FE82C69E9EA00C80861 /* ViewModels */ = {
@@ -312,6 +325,7 @@
 		FAD741FD2C47A18D00CCB7E4 /* Leaderboard */ = {
 			isa = PBXGroup;
 			children = (
+				FA6EEAF82C7E13AB00EEC196 /* ViewModels */,
 				FAD742012C47A1E600CCB7E4 /* LeaderboardView.swift */,
 			);
 			path = Leaderboard;
@@ -463,9 +477,11 @@
 				FAD742022C47A1E600CCB7E4 /* LeaderboardView.swift in Sources */,
 				FAFF204E2C63A11E007E0971 /* TransformDate.swift in Sources */,
 				FA4464BB2C4A505100463B90 /* MatchCard.swift in Sources */,
+				FAC46F002C7DFE1400FB8A66 /* Leaderboard.swift in Sources */,
 				FA56BD2C2C455C7F0093F619 /* LoginViewModel.swift in Sources */,
 				FAFA2FDA2C610D0E00607A34 /* WebService.swift in Sources */,
 				FAFF20432C635CCC007E0971 /* ProfileView.swift in Sources */,
+				FA6EEAFA2C7E13C000EEC196 /* LeaderboardViewModel.swift in Sources */,
 				FAD742002C47A1C400CCB7E4 /* HomeView.swift in Sources */,
 				FA2F383D2C64ECED008C1B3B /* NotificationManager.swift in Sources */,
 				FA56BD1F2C4541730093F619 /* LoginView.swift in Sources */,

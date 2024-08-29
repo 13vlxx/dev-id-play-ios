@@ -63,7 +63,7 @@ extension MatchCard {
             HStack {
                 ZStack {
                     ForEach(Array(match.players.filter {$0.id != CurrentUserService.shared.currentUser?.id}.enumerated()), id: \.element.id ) {index, u in
-                        WebImage(url: URL(string: u.logoUrl))
+                        WebImage(url: URL(string: u.logoUrl ?? ""))
                             .resizable()
                             .clipShape(Circle())
                             .frame(width: 25, height: 25)
